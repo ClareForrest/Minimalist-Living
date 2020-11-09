@@ -1,5 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :set_params, only:[:show, :edit, :update, :delete]
+
   def index
     @problems = Problem.all
   end
@@ -9,7 +10,7 @@ class ProblemsController < ApplicationController
   end
 
   def create
-    current_user.problems.create(problem_params)
+    @problem = current_user.problems.create(problem_params)
     redirect_to problems_path
   end
 
@@ -17,10 +18,11 @@ class ProblemsController < ApplicationController
   end
 
   def edit
-    @problem = Problem.find(params[:problem][:id])
   end
 
   def update
+    @problem.update(problem_params)
+    redirect_to problems_path
   end
 
   private
@@ -30,6 +32,6 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:title, :body, :id)
+    params.require(:problem).permit(:title, :body)
   end
 end
