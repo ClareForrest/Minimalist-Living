@@ -1,0 +1,8 @@
+<h1>problems page</h1>
+<% @problems.each do |problem| %>
+<p> Title: <%= problem.title %> </p>
+<p> Body: <%= problem.body %> </p>
+<%= link_to 'Show', problem_path %>
+<% end %>
+
+<%= link_to 'Create New', new_problem_path %>
