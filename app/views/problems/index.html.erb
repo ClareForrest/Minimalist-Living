@@ -2,8 +2,8 @@
 <% @problems.each do |problem| %>
 <p> Title: <%= problem.title %> </p>
 <p> Body: <%= problem.body %> </p>
-
+<%= link_to 'Edit', edit_problem_path(problem.id) %>
+<%= link_to 'Delete', problem_path(problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
 
 <%= link_to 'Create New', new_problem_path %>
-<%= link_to 'Edit', problem_path %>

@@ -1,5 +1,5 @@
 class ProblemsController < ApplicationController
-  before_action :set_params, only:[:show, :edit, :update, :delete]
+  before_action :set_params, only:[:show, :edit, :update, :destroy]
 
   def index
     @problems = Problem.all
@@ -22,6 +22,11 @@ class ProblemsController < ApplicationController
 
   def update
     @problem.update(problem_params)
+    redirect_to problems_path
+  end
+
+  def destroy
+    @problem.destroy
     redirect_to problems_path
   end
 
