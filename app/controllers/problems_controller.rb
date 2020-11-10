@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_params, only:[:show, :edit, :update, :destroy]
 
   def index
