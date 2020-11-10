@@ -9,11 +9,27 @@ class SolutionsController < ApplicationController
   end
 
   def create
-    @solution = Problems.solutions.create(solution_params)
+    @problem = Problems.solutions.create(solution_params)
     redirect_to solutions_path
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
   private
+
+  def set_solution
+    # @solution = 
+  end
 
   def solution_params
     params.require(:solution).permit(:title, :body)
