@@ -9,7 +9,10 @@ class SolutionsController < ApplicationController
   end
 
   def create
-    @solution = Solution.create(solution_params)
+    @problem = Problem.find(params[:id])
+    @solution = @problem.solutions.create(solution_params)
+    redirect_to problem_solutions_path
+    # @solution = Problem.solution.create(solution_params)
   end
 
   def show
