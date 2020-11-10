@@ -5,4 +5,5 @@
   <h3>Description: <%= @problem.body %></h3>
 </div>
 
-<%# <%= link_to 'Edit', edit_problem_path %>
+<%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>
+<%= link_to 'View Solutions for this Problem', problem_solutions_path(@problem.id) %>

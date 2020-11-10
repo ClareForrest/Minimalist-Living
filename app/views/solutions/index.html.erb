@@ -3,6 +3,5 @@
 <%= @solutions.each do |solution| %>
 <p> Title: <%= solution.title %></p>
 <p> Body: <%= solution.body %></p>
+<p> <%= link_to 'Edit Solution', edit_problem_solution_path(@problem.id) %>
 <% end %>
-
-<%= link_to 'Suggest Solution', new_solution_path %>

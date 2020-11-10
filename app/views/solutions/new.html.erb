@@ -1,6 +1,6 @@
 <h1> New Solution Page </h1>
 
-<%= form_with model: @solution, local: true do |f| %>
+<%= form_with scope: :solution, url: problem_solutions_path, method: 'post', local: true do |f| %>
 <p> Title: <%= f.text_field :title %></p>
 <p> Body: <%= f.text_area :body %></p>
 <%= f.submit 'Suggest Solution' %>
