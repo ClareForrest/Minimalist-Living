@@ -1,5 +1,5 @@
 class SolutionsController < ApplicationController
-
+  before_action :set_params, only:[:show, :edit, :update, :destroy]
   def index
     @solutions = Solution.all
   end
@@ -9,8 +9,7 @@ class SolutionsController < ApplicationController
   end
 
   def create
-    @problem = Problems.solutions.create(solution_params)
-    redirect_to solutions_path
+    @solution = Solution.create(solution_params)
   end
 
   def show
@@ -27,12 +26,12 @@ class SolutionsController < ApplicationController
 
   private
 
-  def set_solution
-    # @solution = 
+  def set_params
+    @solution = Solution.find(params[:id])
   end
 
   def solution_params
-    params.require(:solution).permit(:title, :body)
+    params.require(:solution).permit(:title, :body)#also includes :id
   end
 
 end
