@@ -1,5 +1,4 @@
 class SolutionsController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @solutions = Solution.all
@@ -10,6 +9,7 @@ class SolutionsController < ApplicationController
   end
 
   def create
+    @solution = Problems.solutions.create(solution_params)
     redirect_to solutions_path
   end
 

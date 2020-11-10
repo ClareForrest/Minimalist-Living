@@ -1,6 +1,8 @@
 <h1> Solutions Index Page </h1>
 
-<%= @solutions.each do |s| %>
-<p> Title: <%= s.title %></p>
-<p> Body: <%= s.body %></p>
+<%= @solutions.each do |solution| %>
+<p> Title: <%= solution.title %></p>
+<p> Body: <%= solution.body %></p>
 <% end %>
+
+<%= link_to 'Suggest Solution', new_solution_path %>
