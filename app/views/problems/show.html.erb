@@ -3,6 +3,7 @@
 <div>
   <h3>Title: <%= @problem.title %></h3>
   <h3>Description: <%= @problem.body %></h3>
+  <%= image_tag @problem.image %>
 </div>
 
 <%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>

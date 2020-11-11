@@ -42,7 +42,7 @@ class SolutionsController < ApplicationController
   end
 
   def solution_params
-    params.require(:solution).permit(:title, :body) # also includes PK :id and FK user_id and problem_id
+    params.require(:solution).permit(:title, :body, :image) # also includes PK :id and FK user_id and problem_id
   end
 
   def authorize_user!

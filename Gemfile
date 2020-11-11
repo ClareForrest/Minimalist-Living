@@ -51,3 +51,5 @@ gem 'devise'
 gem 'rspec'
 gem 'rubocop'
 gem 'stripe'
+
+gem "aws-sdk-s3", "~> 1.84"
