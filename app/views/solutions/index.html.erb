@@ -1,7 +1,9 @@
 <h1> Solutions Index Page </h1>
 
-<%= @solutions.each do |solution| %>
-<p> Title: <%= solution.title %></p>
-<p> Body: <%= solution.body %></p>
-<p> <%= link_to 'Edit Solution', edit_problem_solution_path(@problem.id) %>
+<% @solutions.each do |solution| %>
+<p>Title: <%= solution.title %> </p>
+<p>Solution: <%= solution.body %> </p>
+<%= link_to 'Edit', edit_problem_solution_path(solution[:problem_id], solution[:id]) %>
+<%= link_to 'Delete', problem_solution_path(solution[:problem_id], solution[:id]), method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
+<%= link_to 'Challenges Page', problems_path %>
