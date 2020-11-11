@@ -1,6 +1,7 @@
 class ProblemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_params, only:[:show, :edit, :update, :destroy]
+  before_action :authorize_user!, only:[:edit, :update, :destroy]
 
   def index
     @problems = Problem.all
@@ -40,4 +41,12 @@ class ProblemsController < ApplicationController
   def problem_params
     params.require(:problem).permit(:title, :body)
   end
+
+  def authorize_user!
+    unless @problem.user == current_user
+      redirect_to problems_path(params[:problem_id])
+      #put in an alert here
+    end
+  end
+
 end
