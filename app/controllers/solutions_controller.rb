@@ -1,7 +1,7 @@
 class SolutionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_params, only:[:show, :edit, :update, :destroy]
-  before_action :authorize_user!, only:[:edit, :update, :destroy]
+  before_action :set_params, only: %i[show edit update destroy]
+  before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
     @solutions = Solution.all
@@ -19,8 +19,7 @@ class SolutionsController < ApplicationController
     redirect_to problem_solutions_path
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @problem_id = params[:problem_id]
@@ -43,14 +42,13 @@ class SolutionsController < ApplicationController
   end
 
   def solution_params
-    params.require(:solution).permit(:title, :body)#also includes PK :id and FK user_id and problem_id
+    params.require(:solution).permit(:title, :body) # also includes PK :id and FK user_id and problem_id
   end
 
   def authorize_user!
     unless @solution.user == current_user
       redirect_to problem_solutions_path(params[:problem_id])
-      #put in an alert here
+      # put in an alert here
     end
   end
-
 end
