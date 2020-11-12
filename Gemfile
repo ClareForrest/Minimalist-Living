@@ -51,5 +51,6 @@ gem 'devise'
 gem 'rspec'
 gem 'rubocop'
 gem 'stripe'
+gem 'ultrahook'
 
-gem "aws-sdk-s3", "~> 1.84"
+gem 'aws-sdk-s3', '~> 1.84'
