@@ -1,11 +1,7 @@
 <h1>problems index page</h1>
 <% @problems.each do |problem| %>
 <p> Title: <%= problem.title %> </p>
-<p> Body: <%= problem.body %> </p>
-<%= image_tag problem.image if problem.image.attached? %>
 
-<%= link_to 'Edit', edit_problem_path(problem.id) %>
-<%= link_to 'Delete', problem_path(problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
 <%= link_to 'Show', problem_path(problem.id) %>
 
 <% end %>

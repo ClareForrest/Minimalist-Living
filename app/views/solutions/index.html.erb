@@ -3,6 +3,14 @@
 <% @solutions.each do |solution| %>
 <p>Title: <%= solution.title %> </p>
 <p>Solution: <%= solution.body %> </p>
+<% if solution.image.attached? %>
+<p>Image: <%= image_tag solution.image %> </p>
+<% else %>
+<p> No image attached </p>
+<% end %>
+<% if solution.document.attached? %>
+<%= "This solution has a pdf available for purchase" %>
+<% end %>
 <%= link_to 'Edit', edit_problem_solution_path(solution[:problem_id], solution[:id]) %>
 <%= link_to 'Delete', problem_solution_path(solution[:problem_id], solution[:id]), method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>

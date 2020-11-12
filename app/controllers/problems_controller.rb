@@ -13,7 +13,7 @@ class ProblemsController < ApplicationController
 
   def create
     @problem = current_user.problems.create(problem_params)
-    redirect_to problems_path
+    redirect_to problem_path(@problem[:id])
   end
 
   def show; end
@@ -22,7 +22,7 @@ class ProblemsController < ApplicationController
 
   def update
     @problem.update(problem_params)
-    redirect_to problems_path
+    redirect_to problem_path(@problem[:id])
   end
 
   def destroy
@@ -37,7 +37,7 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:title, :body, :image)
+    params.require(:problem).permit(:title, :body, :image, :document)
   end
 
   def authorize_user!

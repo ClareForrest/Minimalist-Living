@@ -3,8 +3,13 @@
 <div>
   <h3>Title: <%= @problem.title %></h3>
   <h3>Description: <%= @problem.body %></h3>
+  <% if @problem.image.attached? %>
   <%= image_tag @problem.image %>
+  <% else %> 
+  <p> "No image attached" </p>
+  <% end %>
 </div>
-
+<%= link_to 'Edit', edit_problem_path(@problem.id) %>
+<%= link_to 'Delete', problem_path(@problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
 <%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>
 <%= link_to 'View Solutions for this Problem', problem_solutions_path(@problem.id) %>

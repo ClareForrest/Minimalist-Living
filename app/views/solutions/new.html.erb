@@ -3,5 +3,7 @@
 <%= form_with scope: :solution, url: problem_solutions_path, method: 'post', local: true do |f| %>
 <p> Title: <%= f.text_field :title %></p>
 <p> Body: <%= f.text_area :body %></p>
+<p> Solution: <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %> </p>
+<p>pdf <%= f.file_field :document, accept: 'document/pdf' %></p>
 <%= f.submit 'Suggest Solution' %>
 <% end %>
