@@ -16,10 +16,33 @@ class SolutionsController < ApplicationController
     @solution = @problem.solutions.new(solution_params)
     @solution.user = current_user
     @solution.save
-    redirect_to problem_solutions_path
+    redirect_to problem_solution_path(@problem, @solution)
   end
 
-  def show; end
+  def show
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      customer_email: current_user.email,
+      line_items: [{
+        name: @solution.title,
+        description: @solution.body,
+        images: @solution.image,
+        amount: (@solution.price).to_i, #amount needs to be an integer
+        currency: 'aud',
+        quantity: 1
+      }],
+      payment_intent_data: {
+        metadata: {
+        solution_id: @solution.id,
+        # problem_id: @problem.id,
+        user_id: current_user.id
+        }
+      },
+      success_url: "#{root_url}payments/success?solutionId=#{@solution.id}",
+      cancel_url: "#{root_url}solutions"
+    )
+    @session_id = session.id
+  end
 
   def edit
     @problem_id = params[:problem_id]
@@ -42,7 +65,7 @@ class SolutionsController < ApplicationController
   end
 
   def solution_params
-    params.require(:solution).permit(:title, :body, :image, :document) # also includes PK :id and FK user_id and problem_id
+    params.require(:solution).permit(:title, :body, :image, :document, :price) # also includes PK :id and FK user_id and problem_id
   end
 
   def authorize_user!

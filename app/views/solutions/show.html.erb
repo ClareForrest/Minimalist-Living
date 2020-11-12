@@ -3,6 +3,27 @@
 <div>
   <h3>Title: <%= @solution.title %></h3>
   <h3>Description: <%= @solution.body %></h3>
-  <p><%= @solution.image %></p>
+  <% if @solution.image.attached? %>
+  <%= image_tag @solution.image %>
+  <% else %> 
+  <p> "No image attached" </p>
+  <% end %>
+  <% if @solution.document.attached? %>
+  <p> "PDF available to <%= link_to "purchase" %> for <%=@solution.price%></p>
+  <% else %> 
+  <p> "No PDF available" </p>
+  <% end %>
 
 </div>
+<button data-stripe="payment"> Purchase Instructional PDF <%= number_to_currency(@solution.price)%></button>
+<%= link_to 'Back', solutions_path %>
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+	document.querySelector(“[data-strip='payment']:).addEventListener("click", () => {
+		const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+		stripe.redirectToCheckout({
+			sessionId: "<%= @session_id %>"
+		});
+	});
+</script>
