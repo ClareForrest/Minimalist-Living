@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_params, only: %i[show edit update destroy]
+  before_action :set_problem, only: %i[show edit update destroy]
   before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
@@ -32,7 +32,7 @@ class ProblemsController < ApplicationController
 
   private
 
-  def set_params
+  def set_problem
     @problem = Problem.find(params[:id])
   end
 

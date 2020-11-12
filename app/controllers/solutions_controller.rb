@@ -1,6 +1,6 @@
 class SolutionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_params, only: %i[show edit update destroy]
+  before_action :set_solution, only: %i[show edit update destroy]
   before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
@@ -24,20 +24,16 @@ class SolutionsController < ApplicationController
       payment_method_types: ['card'],
       customer_email: current_user.email,
       line_items: [{
-        name: @solution.title,
-        description: @solution.body,
-        images: @solution.image,
-        amount: (@solution.price).to_i, #amount needs to be an integer
-        currency: 'aud',
+        price_data: {
+          currency: 'aud',
+          product_data: {
+            name: @solution.title
+          },
+          unit_amount: (@solution.price * 100).to_i
+        },
         quantity: 1
       }],
-      payment_intent_data: {
-        metadata: {
-        solution_id: @solution.id,
-        # problem_id: @problem.id,
-        user_id: current_user.id
-        }
-      },
+      mode: 'payment',
       success_url: "#{root_url}payments/success?solutionId=#{@solution.id}",
       cancel_url: "#{root_url}solutions"
     )
@@ -60,7 +56,7 @@ class SolutionsController < ApplicationController
 
   private
 
-  def set_params
+  def set_solution
     @solution = Solution.find(params[:id])
   end
 
