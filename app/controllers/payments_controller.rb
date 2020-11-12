@@ -1,4 +1,3 @@
 class PaymentsController < ApplicationController
-	def success
-	end
+  def success; end
 end

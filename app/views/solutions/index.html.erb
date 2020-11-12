@@ -9,8 +9,9 @@
 <p> No image attached </p>
 <% end %>
 <% if solution.document.attached? %>
-<p>This solution has a pdf available to <%= link_to "purchase" %> for $<%=solution.price%></p>
+<p>This solution has a pdf available to purchase for $<%=solution.price%></p>
 <% end %>
+<%= link_to 'Show', problem_solution_path(solution[:problem_id], solution[:id]) %>
 <%= link_to 'Edit', edit_problem_solution_path(solution[:problem_id], solution[:id]) %>
 <%= link_to 'Delete', problem_solution_path(solution[:problem_id], solution[:id]), method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>

@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     root to: 'problems#index', as: :authenticated_root
   end
   root to: 'home#index'
-
+  get '/payments/success', to: 'payments#success'
 end
