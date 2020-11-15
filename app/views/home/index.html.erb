@@ -1,9 +1,19 @@
 <div class="container">
-  <h1>Minimalist</h1>
-  <h1>Apartment</h1>
-  <h1>Living</h1>
-    <div class="sign-in-links">
+  <div class="row" ><h1>Minimalist</h1></div>
+  <div class="row" >
+    <div class="col">
+      <h1>Apartment</h1>
+    </div>
+    <div class="col">
       <h3><%= link_to 'Sign In', new_user_session_path %></h4>
-      <h4><%= link_to 'Sign Up', new_user_registration_path %></h4>
-    <div>
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col">
+      <h1>Living</h1>
+    </div>
+    <div class="col">
+     <h4><%= link_to 'Sign Up', new_user_registration_path %></h4>
+    </div>
+  </div>
 </div>
