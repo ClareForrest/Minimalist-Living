@@ -1,4 +1,17 @@
-  <nav>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-    <%= link_to 'Challenges', problems_path %>
+  <%# <div class="fixed-top"> %>
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <%# <h5 class="text-white h4">Collapsed content</h5> %>
+      <span class="text-muted">
+        <%= link_to 'See All Challenges', problems_path %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+        Blog
+      </span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </nav>
+<%# </div> %>
