@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
   root to: 'home#index'
   get '/payments/success', to: 'payments#success'
+  post '/payments/webhook', to: 'payments#webhook'
 end
