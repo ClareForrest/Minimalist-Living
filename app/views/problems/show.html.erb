@@ -1,15 +1,46 @@
 <h1> Problems Show Page </h1>
 
-<div>
-  <h3>Title: <%= @problem.title %></h3>
-  <h3>Description: <%= @problem.body %></h3>
-  <% if @problem.image.attached? %>
-  <%= image_tag @problem.image %>
-  <% else %> 
-  <p> "No image attached" </p>
-  <% end %>
+<div class="card" class="row row-cols-2">
+   <% if @problem.image.attached? %>
+      <%= image_tag @problem.image %>
+      <% else %> 
+      <p> "No image attached" </p>
+      <% end %> 
+  <div class="card-body">
+    <h5 class="card-header"><%= @problem.title %></h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @problem.body %></p>
+    <%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>
+  </div>
+  </div>
 </div>
-<%= link_to 'Edit', edit_problem_path(@problem.id) %>
+ <%= link_to 'Edit', edit_problem_path(@problem.id) %>
 <%= link_to 'Delete', problem_path(@problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
-<%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>
-<%= link_to 'View Solutions for this Problem', problem_solutions_path(@problem.id) %>
+
+<% @problem.solutions.each do |solution| %>
+<div class="accrdion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <%= solution.title %>  
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      <%= solution.body %>
+      <% if solution.document.attached? %>
+      Insert PDF image here
+      <%= link_to 'purchase', problem_solution_path(solution[:problem_id], solution[:id])%>
+      <% else %>
+      No PDF attached
+      <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<%# <%= link_to 'View Solutions for this Problem', problem_solutions_path(@problem.id) %>

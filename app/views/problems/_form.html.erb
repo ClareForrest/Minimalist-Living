@@ -1,8 +1,15 @@
 <%= form_with model: @problem, local: true do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :body %>
-<%= f.text_area :body %>
+<div class="row">
+<div class="col">
+<div class="card border-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"><%= f.text_field :title %></div>
+  <div class="card-body"><%= f.text_area :body %></div>
+  <%= f.submit %>
+  <% end %>
+</div>
+</div>
+<div class="col">
+<%= form_with model: @problem, local: true do |f| %>
 <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
-<%= f.submit %>
 <% end %>
+</div>

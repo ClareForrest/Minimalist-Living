@@ -1,9 +1,12 @@
-<h1>problems index page</h1>
-<% @problems.each do |problem| %>
-<p> Title: <%= problem.title %> </p>
+<h1>Challenges - View All page</h1>
+  <% @problems.each do |problem| %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> <%= link_to problem.title, problem_path(problem.id) %> </h5>
+    <%# <h6 class="card-subtitle mb-2 text-muted"><%= current_user</h6> %>
+    <p class="card-text"><%= problem.body %></p>
+  </div>
+</div>
+    <% end %>
 
-<%= link_to 'Show', problem_path(problem.id) %>
-
-<% end %>
-
-<%= link_to 'Create New', new_problem_path %>
+<%= link_to 'List New Challenge', new_problem_path %>
