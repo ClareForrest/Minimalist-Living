@@ -1,15 +1,36 @@
 <%= form_with model: @problem, local: true do |f| %>
 <div class="row">
 <div class="col">
+  <div class="btn-group-vertical">
+    <%= radio_button_tag(:category, "Hallway") %>
+    <%= label_tag(:category, "Hallway") %>
+    <%= radio_button_tag(:category, "Kitchen") %>
+    <%= label_tag(:category, "Kitchen") %>
+    <%= radio_button_tag(:category, "Bathroom") %>
+    <%= label_tag(:category, "Bathroom") %>
+    <%= radio_button_tag(:category, "Living") %>
+    <%= label_tag(:category, "Living") %>
+    <%= radio_button_tag(:category, "Bedroom") %>
+    <%= label_tag(:category, "Bedroom") %>
+    <%= radio_button_tag(:category, "Study") %>
+    <%= label_tag(:category, "Study") %>
+    <%= radio_button_tag(:category, "Laundry") %>
+    <%= label_tag(:category, "Laundry") %>
+    <%= radio_button_tag(:category, "Balcony") %>
+    <%= label_tag(:category, "Balcony") %>
+  </div>
+</div>
+
+<div class="col">
 <div class="card border-light mb-3" style="max-width: 18rem;">
   <div class="card-header"><%= f.text_field :title %></div>
   <div class="card-body"><%= f.text_area :body %></div>
-  <%= f.submit %>
-  <% end %>
-</div>
 </div>
 <div class="col">
-<%= form_with model: @problem, local: true do |f| %>
 <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
-<% end %>
 </div>
+</div>
+</div>
+  <%= f.submit %>
+  <% end %>
+
