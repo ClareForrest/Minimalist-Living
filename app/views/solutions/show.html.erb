@@ -1,13 +1,13 @@
-<h1> show solutions page </h1>
+<h1> Solution for</h1>
 
-<div>
+<div class="row row-cols-2">
   <h3>Title: <%= @solution.title %></h3>
-  <h3>Description: <%= @solution.body %></h3>
   <% if @solution.image.attached? %>
   <%= image_tag @solution.image %>
   <% else %> 
   <p> "No image attached" </p>
   <% end %>
+  <h3>Description: <%= @solution.body %></h3>
   <% if @solution.document.attached? %>
   <p> "PDF available to purchase for <%=@solution.price%></p>
   <% else %> 
