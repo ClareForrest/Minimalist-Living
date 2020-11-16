@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :solutions
   end
   authenticated do
-    root to: 'problems#index', as: :authenticated_root
+    root to: 'home#search', as: :authenticated_root
   end
   root to: 'home#index'
   get '/payments/success', to: 'payments#success'
-  post '/payments/webhook', to: 'payments#webhook'
+  post '/payments/webhooks', to: 'payments#webhooks'
 end
