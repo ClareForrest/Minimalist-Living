@@ -1,10 +1,21 @@
 <h1>Challenges - View All page</h1>
 
-  <% @problems.each do |problem| %>
-<div style="width: 100%;">
-  <div class="card-body">
-    <h5 class="card-title"> <%= link_to problem.title, problem_path(problem.id) %> </h5>
-    <p class="card-text"><%= problem.body %></p>
+<%= render 'shared/nav' %>
+<div class="row">
+  <div class="col">
+  <%= image_tag 'chair-lamp.jpg' %>
   </div>
-</div>
+  <div class="col">
+    <% @problems.each do |problem| %>
+    <div style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title"> <%= link_to problem.title, problem_path(problem.id) %> </h5>
+        <p class="card-text"><%= problem.body %></p>
+      </div>
+    </div>
     <% end %>
+  </div>
+    <div class="row fixed-bottom justify-content-end">
+      <h1>Challenges</h1>
+    </div>
+</div>
