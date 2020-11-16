@@ -6,4 +6,6 @@ class Problem < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :body, presence: true, length: { maximum: 500 }
   validates :category, presence: true
+
+  scope :search_by_categories, ->(category) { where(category: category) }
 end

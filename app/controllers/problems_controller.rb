@@ -4,7 +4,11 @@ class ProblemsController < ApplicationController
   before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
-    @problems = Problem.all
+    @problems = if params[:search].present?
+                  Problem.where(category: params[:search][:category])
+                else
+                  Problem.all
+                end
   end
 
   def new
@@ -12,7 +16,7 @@ class ProblemsController < ApplicationController
   end
 
   def create
-    @problem = current_user.problems.create!(problem_params)
+    @problem = current_user.problems.create(problem_params)
     redirect_to problem_path(@problem.id)
   end
 
