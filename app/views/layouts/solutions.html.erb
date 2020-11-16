@@ -10,9 +10,15 @@
   </head>
 
   <body>
-    <%= render 'shared/nav' %> 
-    <%= yield %>
-    <%= render 'shared/solutions' %>
+    <%= render 'shared/nav' %>
+    <div class="row">
+      <div class="col">
+        <%= yield %>
+      </div>
+        <div class="row fixed-bottom justify-content-end">
+          <h1>Solutions</h1>
+        </div>
+      </div>
     </div>
   </body>
 </html>

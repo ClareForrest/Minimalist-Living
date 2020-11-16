@@ -1,7 +1,7 @@
 <h1>Challenges - View All page</h1>
 
   <% @problems.each do |problem| %>
-<div class="card" style="width: 18rem;">
+<div style="width: 100%;">
   <div class="card-body">
     <h5 class="card-title"> <%= link_to problem.title, problem_path(problem.id) %> </h5>
     <p class="card-text"><%= problem.body %></p>
