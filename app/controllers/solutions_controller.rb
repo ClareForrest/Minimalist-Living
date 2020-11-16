@@ -61,13 +61,11 @@ class SolutionsController < ApplicationController
   end
 
   def solution_params
-    params.require(:solution).permit(:title, :body, :image, :document, :price) # also includes PK :id and FK user_id and problem_id
+    params.require(:solution).permit(:title, :body, :image, :document, :price)
+    # also includes PK :id and FK user_id and problem_id
   end
 
   def authorize_user!
-    unless @solution.user == current_user
-      redirect_to problem_solutions_path(params[:problem_id])
-      # put in an alert here
-    end
+    redirect_to problem_solutions_path(params[:problem_id]) unless @solution.user == current_user
   end
 end

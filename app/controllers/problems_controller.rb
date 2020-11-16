@@ -12,8 +12,8 @@ class ProblemsController < ApplicationController
   end
 
   def create
-    @problem = current_user.problems.create(problem_params)
-    redirect_to problem_path(@problem[:id])
+    @problem = current_user.problems.create!(problem_params)
+    redirect_to problem_path(@problem.id)
   end
 
   def show; end
@@ -37,13 +37,10 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:category, :title, :body, :image, :document)
+    params.require(:problem).permit(:title, :body, :category, :image, :document)
   end
 
   def authorize_user!
-    unless @problem.user == current_user
-      redirect_to problems_path(params[:problem_id])
-      # put in an alert here
-    end
+    redirect_to problems_path(params[:problem_id]) unless @problem.user == current_user
   end
 end

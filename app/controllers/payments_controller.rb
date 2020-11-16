@@ -6,8 +6,8 @@ class PaymentsController < ApplicationController
     payment = Stripe::PaymentIntent.retrieve(payment_id)
     solution_id = payment.metadata.solution_id
     user_id = payment.metadata.user_id
-    p "Solution id" + solution_id
-    p "User id" + user_id
-    render plain: "Success"
+    p 'Solution id' + solution_id
+    p 'User id' + user_id
+    render plain: 'Success'
   end
 end
