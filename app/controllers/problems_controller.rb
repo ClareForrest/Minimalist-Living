@@ -5,7 +5,7 @@ class ProblemsController < ApplicationController
 
   def index
     @problems = if params[:search].present?
-                  Problem.where(category: params[:search][:category])
+                  @problems = Problem.where('category ILIKE ?', "%#{params[:search][:category]}%")
                 else
                   Problem.all
                 end

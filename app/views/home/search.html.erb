@@ -1,5 +1,5 @@
 <%= form_with(scope: :search, url: problems_path, method: 'get', local: true) do |f| %>
 <%= f.label :category %>
-<%= f.collection_select :category, Problem.all, :id, :title, {}, {multiple: true} %>
+<%= f.text_field :category, placeholder: 'Where is the challenge you are facing?' %>
 <%= f.submit 'Search' %>
 <% end %>
