@@ -1,5 +1,8 @@
-<h1> New Solution Page </h1>
+<%# <h1> New Solution Page </h1> %>
+<%= render 'shared/nav' %>
+<%= render 'shared/solutions' %>
 
+<div class="container">
 <%= form_with scope: :solution, url: problem_solutions_path, method: 'post', local: true do |f| %>
 <p> Title: <%= f.text_field :title %></p>
 <p> Body: <%= f.text_area :body %></p>
@@ -8,3 +11,4 @@
 <p> Cost: <%=f.number_field :price %>
 <%= f.submit 'Suggest Solution' %>
 <% end %>
+</div>

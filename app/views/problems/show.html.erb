@@ -1,5 +1,6 @@
-<h1> Problems Show Page </h1>
-
+<%# <h1> Problems Show Page </h1> %>
+<%= render 'shared/nav' %>
+<%= render 'shared/problems' %>
 <div class="card" class="row row-cols-2">
    <% if @problem.image.attached? %>
       <%= image_tag @problem.image %>
