@@ -4,7 +4,7 @@ class SolutionsController < ApplicationController
   before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
-    @solutions = Solution.all
+    @solutions = Solution.all.includes([:image_attachment], [:document_attachment])
   end
 
   def new
