@@ -2,35 +2,28 @@
 <div class="row">
 <div class="col">
   <div class="btn-group-vertical">
-    <%= f.radio_button(:category, "Hallway") %>
-    <%= f.label(:category, "Hallway") %>
-    <%= f.radio_button(:category, "Kitchen") %>
-    <%= f.label(:category, "Kitchen") %>
-    <%= f.radio_button(:category, "Bathroom") %>
-    <%= f.label(:category, "Bathroom") %>
-    <%= f.radio_button(:category, "Living") %>
-    <%= f.label(:category, "Living") %>
-    <%= f.radio_button(:category, "Bedroom") %>
-    <%= f.label(:category, "Bedroom") %>
-    <%= f.radio_button(:category, "Study") %>
-    <%= f.label(:category, "Study") %>
-    <%= f.radio_button(:category, "Laundry") %>
-    <%= f.label(:category, "Laundry") %>
-    <%= f.radio_button(:category, "Balcony") %>
-    <%= f.label(:category, "Balcony") %>
+   <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
+    <h4><%= f.radio_button(:category, "Kitchen") %> Kitchen </h4>
+    <h4><%= f.radio_button(:category, "Bathroom") %> Bathroom </h4>
+    <h4><%= f.radio_button(:category, "Living") %> Living </h4>
+    <h4><%= f.radio_button(:category, "Bedroom") %> Bedroom </h4>
+    <h4><%= f.radio_button(:category, "Study") %> Study </h4>
+    <h4><%= f.radio_button(:category, "Laundry") %> Laundry </h4>
+    <h4><%= f.radio_button(:category, "Balcony") %> Balcony </h4>
   </div>
 </div>
 
 <div class="col">
 <div class="card border-light mb-3" style="max-width: 18rem;">
-  <div class="card-header"><%= f.text_field :title %></div>
-  <div class="card-body"><%= f.text_area :body %></div>
+  <div class="card-header"><%= f.text_field :title, placeholder: 'Challenge Heading' %></div>
+  <div class="card-body"><%= f.text_area :body, placeholder: 'Please provide a short description of the challenge you are facing...' %></div>
 </div>
 <div class="col">
+<h5> You may upload an image if you would like </h5>
 <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
 </div>
 </div>
-  <%= f.submit %>
+  <%= f.submit 'List Challenge'%>
   <% end %>
 </div>
 
