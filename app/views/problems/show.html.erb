@@ -20,10 +20,15 @@
     <h1> Solutions </h1>
     <div class="card">
     <% @problem.solutions.each do |solution| %>
-    <div class="card"><%= solution.image %></div>
+    <% if solution.image.attached? %>
+    <div class="card"><%= image_tag solution.image %></div>
+    <% else %>
+    <p> No image supplied </p>
+    <% end %>
       <h5 class="card-header"><%= solution.title %></h5>
       <p class="card-body"><%= solution.body %></p>
       <p> <%= link_to 'Purchase this Solution', problem_solution_path(@problem.id) %> </p>
+      <%= link_to 'edit', edit_problem_solution_path(@problem.id, solution.id) %>
     <% end %>
     </div>
   </div>
