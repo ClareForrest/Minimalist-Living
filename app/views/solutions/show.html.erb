@@ -1,24 +1,20 @@
-<h1> Solution for</h1>
 <%= render 'shared/nav' %>
-<%= render 'shared/solutions' %>
+<h1> Solution for</h1>
 
-<div class="row row-cols-2">
-  <h3>Title: <%= @solution.title %></h3>
+<div class="row">
+<div class="col-6">
+  <h3><%= @solution.title %></h3>
+</div>
+<div class="col-6" class="solution-image">
   <% if @solution.image.attached? %>
   <%= image_tag @solution.image %>
   <% else %> 
   <p> "No image attached" </p>
   <% end %>
-  <h3>Description: <%= @solution.body %></h3>
-  <% if @solution.document.attached? %>
-  <p> "PDF available to purchase for <%=@solution.price%></p>
-  <% else %> 
-  <p> "No PDF available" </p>
-  <% end %>
-
 </div>
+<div>
 <button data-stripe="payment"> Purchase Instructional PDF <%= number_to_currency(@solution.price)%></button>
-<%= link_to 'Back', problem_solutions_path %>
+<div class="text-center"><%= link_to 'Back button not working ', problem_solution_path %></div>
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
@@ -29,3 +25,4 @@
 		});
 	});
 </script>
+</div>

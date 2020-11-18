@@ -1,8 +1,8 @@
 <%= form_with model: @problem, local: true do |f| %>
 <div class="row">
-<div class="col">
+<div class="col text-center">
   <div class="btn-group-vertical">
-   <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
+    <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
     <h4><%= f.radio_button(:category, "Kitchen") %> Kitchen </h4>
     <h4><%= f.radio_button(:category, "Bathroom") %> Bathroom </h4>
     <h4><%= f.radio_button(:category, "Living") %> Living </h4>
@@ -14,16 +14,16 @@
 </div>
 
 <div class="col">
-<div class="card border-light mb-3" style="max-width: 18rem;">
-  <div class="card-header"><%= f.text_field :title, placeholder: 'Challenge Heading' %></div>
-  <div class="card-body"><%= f.text_area :body, placeholder: 'Please provide a short description of the challenge you are facing...' %></div>
-</div>
-<div class="col">
-<h5> You may upload an image if you would like </h5>
-<%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
-</div>
-</div>
+<div class="card">
+  <div class="card-header"><%= f.text_field :title, :size=>"50", placeholder: 'Challenge Heading' %></div>
+  <div class="card-body"><%= f.text_area :body, :size=>"50", placeholder: 'Please provide a short description of the challenge you are facing...' %></div>
   <%= f.submit 'List Challenge'%>
+</div>
+</div>
+<div class="col text-center">
+<h5> Image icon here</h5>
+<h5><%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %></h5>
   <% end %>
+  </div>
 </div>
 

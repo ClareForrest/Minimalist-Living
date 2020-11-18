@@ -1,23 +1,12 @@
-<div class="container">
-<%# <%= image_tag 'home page background.png' %>
-  <div class="row" ><h1>Minimalist</h1></div>
-  <div class="row row-cols-2" >
-    <div class="col">
-      <h1>Apartment</h1>
-    </div>
-    <div class="col">
-      <h3><%= link_to 'Sign In', new_user_session_path %></h4>
-    </div>
+<div class="home-index">
+  <h1 class="col-3 text-right">Minimalist</h1>
+  <div class="row">
+    <h1 class="col-4 text-right" >Apartment</h1>  <h3 class="col-4 text-right"><%= link_to 'Sign In', new_user_session_path %></h4>
   </div>
-  <div class="row row-cols-2" >
-    <div class="col">
-      <h1>Living</h1>
-    </div>
-    <div class="col">
-     <h4><%= link_to 'Sign Up', new_user_registration_path %></h4>
-    </div>
+  <div class="row">
+    <h1 class="col-4 text-right" >Living</h1>  <h4 class="col-4 text-right"><%= link_to 'Sign Up', new_user_registration_path %></h4>
   </div>
-  <div class="col align-self-end">
-    Blog Link Here
+  <div class="col-6 text-right">
+    <p> Blog Link Here </p>
   </div>
 </div>

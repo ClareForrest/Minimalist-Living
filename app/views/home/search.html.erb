@@ -1,5 +1,20 @@
-<%= form_with(scope: :search, url: problems_path, method: 'get', local: true) do |f| %>
-<%= f.label :category %>
-<%= f.text_field :category, placeholder: 'Where is the challenge you are facing?' %>
-<%= f.submit 'Search' %>
-<% end %>
+<div class="row">
+  <div class="col-6">
+    <img class="img-thumbnail"<%= image_tag 'black-poppys.jpg'%> >
+  </div>
+  <div class="col-6">
+  <div class="card">
+  <div class="card-body text-center">
+    <p> Search our database to see if someone else has encountered the same challenge as you...</p>
+    <%= form_with(scope: :search, url: problems_path, method: 'get', local: true) do |f| %>
+    <h4><%= f.text_field :category, :size=>"50", placeholder: 'Where is the challenge you are facing?' %></h4>
+    <%= f.submit 'Search' %>
+    <% end %>
+  </div>
+  </div>
+  <div class="text-center">
+  <p> Can't find what you're looking for?</p>
+  <p> List your own challenge </p>
+  <%= link_to 'Challenge Accepted', new_problem_path %>
+  </div>
+</div>

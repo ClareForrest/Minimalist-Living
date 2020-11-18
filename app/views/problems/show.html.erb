@@ -1,34 +1,30 @@
 <%# <h1> Problems Show Page </h1> %>
-<%= render 'shared/nav' %>
-<%= render 'shared/problems' %>
-<div class="card" class="row row-cols-2">
-   <% if @problem.image.attached? %>
+<div class="row">
+  <div class="col-6">
+  <div style="width: 100%;">
+  <%= image_tag 'skyscrapers.jpg'%>
+  </div>
+  </div>
+  <div class="col-6" >
+    <% if @problem.image.attached? %>
       <%= image_tag @problem.image %>
-      <% else %> 
-      <p> "No image attached" </p>
-      <% end %> 
-  <div class="card-body">
+    <% else %> 
+      <p> Put image placeholder here </p>
+    <% end %> 
     <h5 class="card-header"><%= @problem.title %></h5>
-  </div>
-  <div class="card-body">
-    <p class="card-text"><%= @problem.body %></p>
+    <%= link_to 'Edit', edit_problem_path(@problem.id) %>
+    <%= link_to 'Delete', problem_path(@problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+    <p class="card-body"><%= @problem.body %></p>
     <%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>
-  </div>
+
+    <h1> Solutions </h1>
+    <div class="card">
+    <% @problem.solutions.each do |solution| %>
+    <div class="card"><%= solution.image %></div>
+      <h5 class="card-header"><%= solution.title %></h5>
+      <p class="card-body"><%= solution.body %></p>
+      <p> <%= link_to 'Purchase this Solution', problem_solution_path(@problem.id) %> </p>
+    <% end %>
+    </div>
   </div>
 </div>
- <%= link_to 'Edit', edit_problem_path(@problem.id) %>
-<%= link_to 'Delete', problem_path(@problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
-
-<% @problem.solutions.each do |solution| %>
-<div class="card" style="width: 18rem;">
-  <%= solution.image %>
-  <%# <img src="..." class="card-img-top" alt="..."> %>
-  <div class="card-body">
-    <h5 class="card-title"><%= solution.title %></h5>
-    <p class="card-text"><%= solution.body %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-<% end %>
-
-<%# <%= link_to 'View Solutions for this Problem', problem_solutions_path(@problem.id) %>
