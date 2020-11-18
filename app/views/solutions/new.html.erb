@@ -1,14 +1,20 @@
 <%# <h1> New Solution Page </h1> %>
-<%= render 'shared/nav' %>
-<%= render 'shared/solutions' %>
 
-<div class="container">
-<%= form_with scope: :solution, url: problem_solutions_path, method: 'post', local: true do |f| %>
-<p> Title: <%= f.text_field :title %></p>
-<p> Body: <%= f.text_area :body %></p>
-<p> Solution: <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %> </p>
-<p> PDF: <%= f.file_field :document, accept: 'document/pdf' %></p>
-<p> Cost: <%=f.number_field :price %>
-<%= f.submit 'Suggest Solution' %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 offset-md-3 text-right">
+  <div class="card" id="solution-card">
+    <%= form_with scope: :solution, url: problem_solutions_path, method: 'post', local: true do |f| %>
+    <%= f.text_field :title, :size=> '65%', placeholder: 'Title' %>
+    <%= f.text_area :body, :size=> '65%', placeholder: 'Enter your soution for the challenge here...' %>
+  </div>
+  </div>
+  <div class="col-md-3">
+    <p> Please upload an image to help others visualise your solution </p>
+    <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
+    <p> If you would like to upload and list an Instructional PDF for sale, please do so below</p>
+    <p> <%= f.file_field :document, accept: 'document/pdf' %> </p>
+    <p> Cost: $ <%=f.number_field :price %></p>
+    <p class="text-center"> <%= f.submit 'Suggest Solution' %> </p>
+    <% end %>
+  </div>
 </div>
