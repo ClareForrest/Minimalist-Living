@@ -1,20 +1,17 @@
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
+    <div class="nav-link active"> <%= link_to 'See All Challenges', problems_path %></div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <div class="nav-link"> <%= link_to 'Search Challenges', authenticated_root_path %></div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
+    <div class="nav-link"> <%= link_to 'List New Challenge', new_problem_path %></div>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <div class="nav-link"> <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> </div>
+  </li>
+  <li class="nav-item">
+    <div class="nav-link disabled">Blog</div>
   </li>
 </ul>
-        <%= link_to 'See All Challenges', problems_path %>
-        <%= link_to 'List New Challenge', new_problem_path %>
-        Blog
-        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-
-  
