@@ -1,18 +1,20 @@
-  <%# <div class="fixed-top"> %>
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <%# <h5 class="text-white h4">Collapsed content</h5> %>
-      <span class="text-muted">
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
         <%= link_to 'See All Challenges', problems_path %>
         <%= link_to 'List New Challenge', new_problem_path %>
         Blog
         <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      </span>
-    </div>
-  </div>
-  <nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
-<%# </div> %>
+
+  
