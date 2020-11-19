@@ -1,34 +1,38 @@
 <div class="row">
   <div class="col-6">
-  <div style="width: 100%;">
-  <%= image_tag 'skyscrapers.jpg'%>
-  </div>
+    <div style="width: 100%;">
+      <%= image_tag 'skyscrapers.jpg'%>
+    </div>
   </div>
   <div class="col-6" >
     <% if @problem.image.attached? %>
       <%= image_tag @problem.image %>
     <% else %> 
-      <p> Put image placeholder here </p>
+      <%= image_tag 'p-placeholder.jpg' %>
     <% end %> 
     <h5 class="card-header"><%= @problem.title %></h5>
-    <%= link_to 'Edit', edit_problem_path(@problem.id) %>
-    <%= link_to 'Delete', problem_path(@problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% if current_user[:id] == @problem.user_id %>
+      <%= link_to 'Edit', edit_problem_path(@problem.id) %>
+      <%= link_to 'Delete', problem_path(@problem.id), method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
     <p class="card-body"><%= @problem.body %></p>
     <%= link_to 'Suggest Solution', new_problem_solution_path(@problem.id) %>
 
     <h1> Solutions </h1>
     <div class="card">
-    <% @problem.solutions.each do |solution| %>
-    <% if solution.image.attached? %>
-    <div class="card"><%= image_tag solution.image %></div>
-    <% else %>
-    <p> No image supplied </p>
-    <% end %>
-      <h5 class="card-header"><%= solution.title %></h5>
-      <p class="card-body"><%= solution.body %></p>
-      <p> <%= link_to 'Purchase this Solution', problem_solution_path(@problem.id) %> </p>
-      <%= link_to 'edit', edit_problem_solution_path(@problem.id, solution.id) %>
-    <% end %>
+      <% @problem.solutions.each do |solution| %>
+        <% if solution.image.attached? %>
+          <div class="card"><%= image_tag solution.image %></div>
+        <% else %>
+          <%= image_tag 's-placeholder.jpg'%>
+        <% end %>
+        <h5 class="card-header"><%= solution.title %></h5>
+        <p class="card-body"><%= solution.body %></p>
+        <%= link_to 'Purchase this Solution', problem_solution_path(@problem.id) %>
+        <% if current_user == @problem.user_id %>
+        <%= link_to 'Edit', edit_problem_solution_path(@problem.id, solution.id) %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

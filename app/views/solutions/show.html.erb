@@ -7,7 +7,7 @@
   <% if @solution.image.attached? %>
   <%= image_tag @solution.image %>
   <% else %> 
-  <p> "No image attached" </p>
+  <%= image_tag "s-placeholder.jpg"%>
   <% end %>
 </div>
 <div>
