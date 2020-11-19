@@ -1,5 +1,16 @@
 <%= form_with model: @problem, local: true do |f| %>
-<div class="row">
+<% if @problem.errors.any? %>
+<div class="row" id="error_explanation">
+<h2>
+  <% pluralize(@problem.errors.count, "error") %> prohibited this article from being saved:</h2>
+  <ul>
+    <% @problem.errors.full_messages.each do|msg| %>
+      <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <div class="col text-center">
   <div class="btn-group-vertical">
     <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
