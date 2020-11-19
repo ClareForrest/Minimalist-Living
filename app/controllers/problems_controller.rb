@@ -4,6 +4,7 @@ class ProblemsController < ApplicationController
   before_action :authorize_user!, only: %i[edit update destroy]
 
   def index
+  #Query searches category column of problem table for full/partial matches from user entered data
     @problems = if params[:search].present?
                   @problems = Problem.where('category ILIKE ?', "%#{params[:search][:category]}%")
                 else

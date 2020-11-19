@@ -15,8 +15,11 @@ class SolutionsController < ApplicationController
     @problem = Problem.find(params[:problem_id])
     @solution = @problem.solutions.new(solution_params)
     @solution.user = current_user
-    @solution.save
-    redirect_to problem_solution_path(@problem, @solution)
+    if @solution.save
+      redirect_to problem_solution_path(@problem, @solution)
+    else 
+      render 'new'
+    end 
   end
 
   def show
