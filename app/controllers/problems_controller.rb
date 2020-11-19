@@ -37,7 +37,7 @@ class ProblemsController < ApplicationController
   private
 
   def set_problem
-    @problem = Problem.find(params[:id])
+    @problem = Problem.includes(solutions: [image_attachment: :blob]).find(params[:id])
   end
 
   def problem_params
