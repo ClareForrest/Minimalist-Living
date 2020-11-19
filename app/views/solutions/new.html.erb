@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-6 offset-md-3 text-right">
-  <div class="card" id="solution-card">
     <%= form_with scope: :solution, url: problem_solutions_path, method: 'post', local: true do |f| %>
-    <%= f.text_field :title, :size=> '65%', placeholder: 'Title' %>
-    <%= f.text_area :body, :size=> '65%', placeholder: 'Enter your soution for the challenge here...' %>
+  <div class="card" id="solution-card">
+    <%= f.text_field :title, placeholder: 'Title' %>
+    <%= f.text_area :body, size: '65', placeholder: 'Enter your solution for the challenge here...' %>
   </div>
   </div>
   <div class="col-md-3">

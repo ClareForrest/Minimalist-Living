@@ -1,16 +1,15 @@
 <%= form_with model: @problem, local: true do |f| %>
 <% if @problem.errors.any? %>
 <div class="row" id="error_explanation">
-<h2>
-  <% pluralize(@problem.errors.count, "error") %> prohibited this article from being saved:</h2>
+<h2><% pluralize(@problem.errors.count, "error") %> prohibited this article from being saved:</h2>
   <ul>
     <% @problem.errors.full_messages.each do|msg| %>
       <li><%= msg %></li>
         <% end %>
       </ul>
-    </div>
   <% end %>
-
+</div>
+<div class="row">
 <div class="col text-center">
   <div class="btn-group-vertical">
     <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
@@ -23,7 +22,6 @@
     <h4><%= f.radio_button(:category, "Balcony") %> Balcony </h4>
   </div>
 </div>
-
 <div class="col">
 <div class="card">
   <div class="card-header"><%= f.text_field :title, placeholder: 'Challenge Heading' %></div>
@@ -32,9 +30,8 @@
 </div>
 </div>
 <div class="col text-center">
-<h5> Image icon here</h5>
+<h5>"Image"</h5>
 <h5><%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %></h5>
   <% end %>
-  </div>
 </div>
-
+</div>
