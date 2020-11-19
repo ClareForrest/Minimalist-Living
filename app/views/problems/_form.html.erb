@@ -26,12 +26,12 @@
 <div class="card">
   <div class="card-header"><%= f.text_field :title, placeholder: 'Challenge Heading' %></div>
   <div class="card-body"><%= f.text_area :body, placeholder: 'Please provide a short description of the challenge you are facing...' %></div>
-  <%= f.submit 'List Challenge'%>
 </div>
 </div>
 <div class="col text-center">
 <h5>"Image"</h5>
 <h5><%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %></h5>
+  <%= f.submit 'List Challenge'%>
   <% end %>
 </div>
 </div>
