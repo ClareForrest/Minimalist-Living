@@ -1,37 +1,37 @@
 <%= form_with model: @problem, local: true do |f| %>
-<% if @problem.errors.any? %>
-<div class="row" id="error_explanation">
-<h2><% pluralize(@problem.errors.count, "error") %> prohibited this article from being saved:</h2>
-  <ul>
-    <% @problem.errors.full_messages.each do|msg| %>
-      <li><%= msg %></li>
-        <% end %>
-      </ul>
-  <% end %>
-</div>
-<div class="row">
-<div class="col text-center">
-  <div class="btn-group-vertical">
-    <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
-    <h4><%= f.radio_button(:category, "Kitchen") %> Kitchen </h4>
-    <h4><%= f.radio_button(:category, "Bathroom") %> Bathroom </h4>
-    <h4><%= f.radio_button(:category, "Living") %> Living </h4>
-    <h4><%= f.radio_button(:category, "Bedroom") %> Bedroom </h4>
-    <h4><%= f.radio_button(:category, "Study") %> Study </h4>
-    <h4><%= f.radio_button(:category, "Laundry") %> Laundry </h4>
-    <h4><%= f.radio_button(:category, "Balcony") %> Balcony </h4>
+  <% if @problem.errors.any? %>
+    <div class="row" id="error_explanation">
+      <h2><% pluralize(@problem.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% @problem.errors.full_messages.each do|msg| %>
+          <li><%= msg %></li>
+            <% end %>
+          </ul>
+      <% end %>
+    </div>
+    <div class="row">
+    <div class="col text-center">
+      <div class="btn-group-vertical">
+        <h4><%= f.radio_button(:category, "Hallway") %> Hallway </h4>
+        <h4><%= f.radio_button(:category, "Kitchen") %> Kitchen </h4>
+        <h4><%= f.radio_button(:category, "Bathroom") %> Bathroom </h4>
+        <h4><%= f.radio_button(:category, "Living") %> Living </h4>
+        <h4><%= f.radio_button(:category, "Bedroom") %> Bedroom </h4>
+        <h4><%= f.radio_button(:category, "Study") %> Study </h4>
+        <h4><%= f.radio_button(:category, "Laundry") %> Laundry </h4>
+        <h4><%= f.radio_button(:category, "Balcony") %> Balcony </h4>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header"><%= f.text_field :title, placeholder: 'Challenge Heading' %></div>
+        <div class="card-body"><%= f.text_area :body, placeholder: 'Please provide a short description of the challenge you are facing...' %></div>
+      </div>
+    </div>
+    <div class="col text-center">
+      <h5>"Image"</h5>
+      <h5><%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %></h5>
+        <%= f.submit 'List Challenge'%>
+    </div>
   </div>
-</div>
-<div class="col">
-<div class="card">
-  <div class="card-header"><%= f.text_field :title, placeholder: 'Challenge Heading' %></div>
-  <div class="card-body"><%= f.text_area :body, placeholder: 'Please provide a short description of the challenge you are facing...' %></div>
-</div>
-</div>
-<div class="col text-center">
-<h5>"Image"</h5>
-<h5><%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %></h5>
-  <%= f.submit 'List Challenge'%>
-  <% end %>
-</div>
-</div>
+<% end %>
