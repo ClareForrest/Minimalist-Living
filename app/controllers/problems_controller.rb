@@ -16,8 +16,12 @@ class ProblemsController < ApplicationController
   end
 
   def create
-    @problem = current_user.problems.create(problem_params)
-    redirect_to problem_path(@problem.id)
+    @problem = current_user.problems.new(problem_params)
+    if @problem.save
+      redirect_to problem_path(@problem.id)
+    else
+      render 'new'
+    end
   end
 
   def show; end
