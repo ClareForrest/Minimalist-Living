@@ -46,7 +46,7 @@ class ProblemsController < ApplicationController
   end
 
   def problem_params
-    params.require(:problem).permit(:title, :body, :category, :image, :document)
+    params.require(:problem).permit(:title, :body, :category, :image)
   end
 
   def authorize_user!

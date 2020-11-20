@@ -1,1 +1,18 @@
-<%= render 'form', {problem: @problem } %>
+<%# <%= render 'form', {problem: @problem } %>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3 text-right">
+    <%= form_with scope: :problem, url: problems_path, method: 'post', local: true do |f| %>
+      <div class="card" id="problems-card">
+        <%= f.text_field :title, placeholder: 'Title' %>
+        <%= f.text_area :body, size: '65', placeholder: 'What is the challenge you are facing?' %>
+        <%= f.text_field :category, placeholder: 'category' %>
+      </div>
+      <div>
+        <p> Please upload an image to help others visualise your challenge </p>
+          <%= f.file_field :image, accept: 'image/png, image/jpg, image/jpeg' %>
+        <p class="text-center"> <%= f.submit 'Submit Challenge' %> </p>
+      </div>
+    <% end %>
+  </div>
+</div>
