@@ -13,7 +13,7 @@
 <div>
 <button data-stripe="payment"> Purchase Instructional PDF <%= number_to_currency(@solution.price)%></button>
 <div class="text-center"><%= link_to 'Back', :back %></div>
-<script src="https://js.stripe.com/v3/"></script>
+<script src="https://minimalist-apartment-living.herokuapp.com"></script>
 
 <script>
 	document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
