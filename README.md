@@ -2,8 +2,8 @@
 *bringing together a community of like-minded apartment enthusiasts*
 
 ## Links
-Please find a link to my [Minimalist Apartment Living site here](https://minimalist-apartment-living.herokuapp.com/)
-Please find a link to my [Github here](https://github.com/ClareForrest/minliving)
+- Please find a link to my [Minimalist Apartment Living site here](https://minimalist-apartment-living.herokuapp.com/)
+- Please find a link to my [Github here](https://github.com/ClareForrest/minliving)
 
 ## Setup Instructions
 - Clone this repo
@@ -41,13 +41,7 @@ To achieve the above features of my app, I have implemented the following functi
 - Image/Document attachment: I have implemented ActiveStorage and S3 for images and the PDF instructional documents to be attached. This meets the criteria for a two-sided marketplace and allows further sharing of knowledge and resources. 
 - Payment: Stripe has also been implemented to enable transactions. Future development will allow users to create their own accounts for direct payments. 
 
-**Screenshots:** I have also included some screenshots to show examples of the above mentioned features.
-
-- Devise Authentication: ![devise authentication](https://drive.google.com/drive/folders/1ck-iE6rh0RWn5UUodySKVefsgd_y8fSc)
-
-- Stripe: ![Stripe](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/stripe implimentation.png)
-
-- Rails Routes: ![rails routes](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/rails routes.png)
+**Screenshots:** I have also included a [link](https://drive.google.com/drive/folders/1ck-iE6rh0RWn5UUodySKVefsgd_y8fSc) to some screenshots to show examples of the above Devise Authentication, Stripe and Rails Routes.
 
 ## Target audience
 My target audience is specifically those living in the CBD / home under 80m^2 and it is these users the site best caters for, however anyone can access and utilise. 
@@ -122,7 +116,7 @@ Stripe: This software program was completely new to me and there are several way
 
 
 ## Sitemap
-Here is an image of my sitemap.![sitemap](https://drive.google.com/drive/folders/1WQRs5lSNSACoPBwst02c-HzFFUAnTxPz)
+Here is a link to an image of my [sitemap](https://drive.google.com/drive/folders/1WQRs5lSNSACoPBwst02c-HzFFUAnTxPz)
 
 ## Wireframes
 Please find a link to my wireframes [here](https://drive.google.com/drive/folders/1TSrjuqP_UZ-xLm_Hyg-BlF6ybe_ofM_A)
@@ -149,8 +143,7 @@ Some common methods such as `.save`, `.new` and `.find` are utilised within my a
 One other example of abstraction within my application is the functionality of Rails itself. Rails has been designed to utilise Object Relational Mapping (ORM) in combination with the Model Views Controller (MVC) framework to provide the links between each other. This has been configured using specific naming conventions, however the actual inner workings of the framework are abstracted away and as long as the programmer follows the convention, the methods will work. 
 
 ## Entity Relationship Diagram and Schema Design
-My initial ERD is ![here:](https://drive.google.com/drive/folders/1UFj8OPO3otRwsDTSYfr3n9xG1yvjjdkZ)
-Please find an image of my database schema design ![here](https://drive.google.com/drive/folders/1UFj8OPO3otRwsDTSYfr3n9xG1yvjjdkZ)
+Here is a [link](https://drive.google.com/drive/folders/1UFj8OPO3otRwsDTSYfr3n9xG1yvjjdkZ) to both my initial ERD and an image of my database schema design
 
 
 ## Entity Relationships explained
