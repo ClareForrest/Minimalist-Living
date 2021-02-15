@@ -13,8 +13,8 @@ Please find a link to my [Github here](https://github.com/ClareForrest/minliving
 - Load http://localhost:3000/ in the browser
 
 ## Login Details
-**email:** 'clare@test.com' **password:** '123456'
-**email:** 'francie@test.com' **password:** '123456'
+- **email:** 'clare@test.com' **password:** '123456'
+- **email:** 'francie@test.com' **password:** '123456'
 
 ## Challenge
 As an Apartment Enthusiast, I enjoy my compact apartment, but I also want to maintain the aesthetic integrity of minimalism whilst preserving the everyday functionality of a home.
@@ -43,7 +43,7 @@ To achieve the above features of my app, I have implemented the following functi
 
 **Screenshots:** I have also included some screenshots to show examples of the above mentioned features.
 
-- Devise Authentication: ![devise authentication](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/devise authentication.png)
+- Devise Authentication: ![devise authentication](https://drive.google.com/drive/folders/1ck-iE6rh0RWn5UUodySKVefsgd_y8fSc)
 
 - Stripe: ![Stripe](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/stripe implimentation.png)
 
@@ -122,7 +122,7 @@ Stripe: This software program was completely new to me and there are several way
 
 
 ## Sitemap
-Here is an image of my sitemap.![sitemap](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/sitemap.png)
+Here is an image of my sitemap.![sitemap](https://drive.google.com/drive/folders/1WQRs5lSNSACoPBwst02c-HzFFUAnTxPz)
 
 ## Wireframes
 Please find a link to my wireframes [here](https://drive.google.com/drive/folders/1TSrjuqP_UZ-xLm_Hyg-BlF6ybe_ofM_A)
@@ -149,8 +149,8 @@ Some common methods such as `.save`, `.new` and `.find` are utilised within my a
 One other example of abstraction within my application is the functionality of Rails itself. Rails has been designed to utilise Object Relational Mapping (ORM) in combination with the Model Views Controller (MVC) framework to provide the links between each other. This has been configured using specific naming conventions, however the actual inner workings of the framework are abstracted away and as long as the programmer follows the convention, the methods will work. 
 
 ## Entity Relationship Diagram and Schema Design
-My initial ERD is ![here:](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/MinLiving ERD.png)
-Please find an image of my database schema design ![here](/Users/clareforrest/Desktop/Assignments/CLAREFORREST_T2A2/docs/draw.io erd.png)
+My initial ERD is ![here:](https://drive.google.com/drive/folders/1UFj8OPO3otRwsDTSYfr3n9xG1yvjjdkZ)
+Please find an image of my database schema design ![here](https://drive.google.com/drive/folders/1UFj8OPO3otRwsDTSYfr3n9xG1yvjjdkZ)
 
 
 ## Entity Relationships explained
